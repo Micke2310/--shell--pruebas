@@ -26,23 +26,44 @@ int main (void)
 		int i= 0;
 		 
 		while (token != NULL)			*/aqui se tokeniza la entrada del usuario para obtener los diferentes argumentos del comando /*
-		{					*/la funcion "strtok" utiliza para dividir la cadena en tokens(argunebtos)/*
-			args[i] = token;
+		{					*/la funcion "strtok" utiliza para dividir la cadena en tokens(argunebtos) basadas en un delimitador/*
+			args[i] = token;		*/(en este caso , un espacio en blenco/*
 			token = strtok(NULL; " ");
 			i++
 		
 		}
 			
 		ags[i] = NULL;		
+
+		pid_t pid = fork();
+
+		if (pid < 0) 		*/se crea un nuevo proceso hijo utilizando la llamada al sistemas "fork()" /*
+														      	
+		{			*/si devuelve un valor negartivo ...se imprimeun mensaje de error. Si devuelve 0 , se trata del proceso del hijo que ejecuta el comanto ultilizado "execvp"/*
+					*/si es diferente de 0 , se trata del proceso padre, que espera a que el proceso hijo termine/*
+		fprintf(stdeer, "error al crear el proceso hijo\n");                
+		return (1);
+		}
+		else if (pid == 0)
+		{
+		execvp(args[0] arg)
+		fprintf(stderr, "error al ejecutar el comando\n");
+		return (1)
+
+		}
+		else 
+		{
+		wait(NULL);
+		}
+		
+		
+		}
+
+
+
+
+			*/el bucle while  continua hasta que "should_run" sea falso, momento en el que el programa termina . /*													
+		return (0);
+
 				
-	}
-
-
-
-
-
-
-
-
-
 }
